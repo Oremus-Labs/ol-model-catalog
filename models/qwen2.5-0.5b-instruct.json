@@ -25,6 +25,12 @@
       "amd.com/gpu": "1"
     }
   },
+  "storage": {
+    "persistentVolumeClaim": {
+      "claimName": "venus-model-storage",
+      "subPath": "qwen2.5-0.5b-instruct"
+    }
+  },
   "vllm": {
     "dtype": "float16",
     "gpuMemoryUtilization": 0.9,
