@@ -25,11 +25,6 @@
       "amd.com/gpu": "1"
     }
   },
-  "storage": {
-    "persistentVolumeClaim": {
-      "claimName": "venus-model-storage"
-    }
-  },
   "env": [
     {
       "name": "HF_HOME",
@@ -38,6 +33,20 @@
     {
       "name": "TRANSFORMERS_CACHE",
       "value": "/mnt/models/.hf-cache"
+    }
+  ],
+  "volumeMounts": [
+    {
+      "name": "model-storage",
+      "mountPath": "/mnt/models"
+    }
+  ],
+  "volumes": [
+    {
+      "name": "model-storage",
+      "persistentVolumeClaim": {
+        "claimName": "venus-model-storage"
+      }
     }
   ],
   "vllm": {
