@@ -27,10 +27,19 @@
   },
   "storage": {
     "persistentVolumeClaim": {
-      "claimName": "venus-model-storage",
-      "subPath": "qwen2.5-0.5b-instruct"
+      "claimName": "venus-model-storage"
     }
   },
+  "env": [
+    {
+      "name": "HF_HOME",
+      "value": "/mnt/models/.hf-cache"
+    },
+    {
+      "name": "TRANSFORMERS_CACHE",
+      "value": "/mnt/models/.hf-cache"
+    }
+  ],
   "vllm": {
     "dtype": "float16",
     "gpuMemoryUtilization": 0.9,
