@@ -2,6 +2,7 @@
   "id": "qwen2.5-0.5b-instruct",
   "displayName": "Qwen2.5 0.5B Instruct",
   "hfModelId": "Qwen/Qwen2.5-0.5B-Instruct",
+  "storageUri": null,
   "runtime": "qwen-vllm-runtime",
   "nodeSelector": {
     "kubernetes.io/hostname": "venus"
@@ -33,6 +34,19 @@
     {
       "name": "TRANSFORMERS_CACHE",
       "value": "/mnt/models/.hf-cache"
+    },
+    {
+      "name": "MODEL_ID",
+      "value": "Qwen/Qwen2.5-0.5B-Instruct"
+    },
+    {
+      "name": "HUGGING_FACE_HUB_TOKEN",
+      "valueFrom": {
+        "secretKeyRef": {
+          "name": "hf-token",
+          "key": "HUGGING_FACE_HUB_TOKEN"
+        }
+      }
     }
   ],
   "volumeMounts": [
