@@ -2,7 +2,7 @@
   "id": "qwen2.5-0.5b-instruct",
   "displayName": "Qwen2.5 0.5B Instruct",
   "hfModelId": "Qwen/Qwen2.5-0.5B-Instruct",
-  "storageUri": "pvc://venus-model-storage",
+  "storageUri": "pvc://venus-model-storage/qwen2.5-0.5b-instruct",
   "runtime": "vllm-runtime",
   "nodeSelector": {
     "kubernetes.io/hostname": "venus"
