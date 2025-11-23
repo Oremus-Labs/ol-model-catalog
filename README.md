@@ -37,3 +37,9 @@ Each model is defined in a JSON file with the following structure:
 ## Usage
 
 The model-manager service reads these configurations and dynamically creates/updates KServe InferenceServices based on API requests.
+
+### Local weight storage conventions
+
+- Set `storageUri` to the PVC (`pvc://venus-model-storage`) that the model-manager uses for cached HuggingFace downloads.
+- Install weights via the `/weights/install` endpoint; it will return the directory name (e.g. `qwen2.5-0.5b-instruct`).
+- Point the `MODEL_ID` env var (or equivalent) to `/mnt/models/<directory-name>` so the runtime loads the cached copy rather than redownloading from HuggingFace.
