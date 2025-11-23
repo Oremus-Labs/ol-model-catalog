@@ -32,10 +32,6 @@
       "value": "/mnt/models/.hf-cache"
     },
     {
-      "name": "TRANSFORMERS_CACHE",
-      "value": "/mnt/models/.hf-cache"
-    },
-    {
       "name": "MODEL_ID",
       "value": "Qwen/Qwen2.5-0.5B-Instruct"
     },
