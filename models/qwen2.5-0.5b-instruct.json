@@ -33,7 +33,7 @@
     },
     {
       "name": "MODEL_ID",
-      "value": "Qwen/Qwen2.5-0.5B-Instruct"
+      "value": "/mnt/models"
     },
     {
       "name": "HUGGING_FACE_HUB_TOKEN",
