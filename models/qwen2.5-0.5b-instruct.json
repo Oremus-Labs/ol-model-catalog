@@ -53,6 +53,7 @@
     "dtype": "float16",
     "gpuMemoryUtilization": 0.9,
     "maxModelLen": 4096,
-    "tensorParallelSize": 1
+    "tensorParallelSize": 1,
+    "served-model-name" : "Qwen/Qwen2.5-0.5B-Instruct"
   }
 }
