@@ -2,6 +2,7 @@
   "id": "qwen2.5-0.5b-instruct",
   "displayName": "Qwen2.5 0.5B Instruct",
   "hfModelId": "Qwen/Qwen2.5-0.5B-Instruct",
+  "servedModelName": "Qwen/Qwen2.5-0.5B-Instruct",
   "storageUri": "pvc://venus-model-storage/Qwen/Qwen2.5-0.5B-Instruct",
   "runtime": "vllm-runtime",
   "nodeSelector": {
@@ -37,7 +38,7 @@
     },
     {
       "name": "MODEL_DIR",
-      "value": "/mnt/models"
+      "value": "/mnt/models/Qwen/Qwen2.5-0.5B-Instruct"
     },
     {
       "name": "HUGGING_FACE_HUB_TOKEN",
@@ -54,6 +55,10 @@
     "gpuMemoryUtilization": 0.9,
     "maxModelLen": 4096,
     "tensorParallelSize": 1,
-    "served-model-name" : "Qwen/Qwen2.5-0.5B-Instruct"
+    "trustRemoteCode": true,
+    "extraArgs": [
+      "--swap-space",
+      "16"
+    ]
   }
 }
