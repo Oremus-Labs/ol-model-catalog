@@ -1,0 +1,64 @@
+{
+  "id": "deepseek-ocr",
+  "displayName": "DeepSeek OCR",
+  "hfModelId": "deepseek-ai/DeepSeek-OCR",
+  "servedModelName": "deepseek-ai/DeepSeek-OCR",
+  "storageUri": "pvc://venus-model-storage/deepseek-ai/DeepSeek-OCR",
+  "runtime": "vllm-runtime",
+  "nodeSelector": {
+    "kubernetes.io/hostname": "venus"
+  },
+  "tolerations": [
+    {
+      "key": "amd.com/gpu",
+      "operator": "Exists",
+      "effect": "NoSchedule"
+    }
+  ],
+  "resources": {
+    "requests": {
+      "cpu": "8",
+      "memory": "32Gi",
+      "amd.com/gpu": "1"
+    },
+    "limits": {
+      "cpu": "12",
+      "memory": "48Gi",
+      "amd.com/gpu": "1"
+    }
+  ],
+  "env": [
+    {
+      "name": "HF_HOME",
+      "value": "/mnt/models/.hf-cache"
+    },
+    {
+      "name": "MODEL_ID",
+      "value": "deepseek-ai/DeepSeek-OCR"
+    },
+    {
+      "name": "MODEL_DIR",
+      "value": "/mnt/models"
+    },
+    {
+      "name": "HUGGING_FACE_HUB_TOKEN",
+      "valueFrom": {
+        "secretKeyRef": {
+          "name": "hf-token",
+          "key": "HUGGING_FACE_HUB_TOKEN"
+        }
+      }
+    }
+  ],
+  "vllm": {
+    "tensorParallelSize": 1,
+    "dtype": "float16",
+    "gpuMemoryUtilization": 0.9,
+    "maxModelLen": 2048,
+    "trustRemoteCode": true,
+    "extraArgs": [
+      "--swap-space",
+      "32"
+    ]
+  }
+}
