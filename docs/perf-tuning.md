@@ -6,8 +6,6 @@ Tracking iterative configuration changes and throughput measurements on the Venu
 
 | Trial | Max Model Len | GPU Mem Util | Swap (GiB) | CPU Req/Lim | Mem Req/Lim | Extra Args | Notes | Tokens/s |
 |-------|---------------|--------------|-----------|-------------|-------------|------------|-------|----------|
-| P1 | 2048 | 0.90 | 8 | 6 / 10 | 24 GiB / 32 GiB | `--swap-space 8` | Chat completions, 3 runs | ~90 tok/s |
-| P2 | 4096 | 0.90 | 8 | 6 / 10 | 24 GiB / 32 GiB | `--swap-space 8` | 4k context; similar throughput | ~88 tok/s |
 | D1 | 2048 | 0.90 | 8 | 6 / 10 | 16 GiB / 24 GiB | `--swap-space 8` | Baseline; avg of 3 runs (max_tokens 512) | ~108 tok/s |
 | D2 | 4096 | 0.90 | 8 | 6 / 10 | 16 GiB / 24 GiB | `--swap-space 8` | Larger context; runs 2-3 avg | ~114 tok/s |
 | D3 | 8192 | 0.90 | 8 | 6 / 10 | 16 GiB / 24 GiB | `--swap-space 8` | 1k-token completions; similar throughput | ~108 tok/s |
@@ -17,6 +15,16 @@ Tracking iterative configuration changes and throughput measurements on the Venu
 
 | Trial | Max Model Len | GPU Mem Util | Swap (GiB) | CPU Req/Lim | Mem Req/Lim | Extra Args | Notes | Tokens/s |
 |-------|---------------|--------------|-----------|-------------|-------------|------------|-------|----------|
+| P1 | 2048 | 0.90 | 8 | 6 / 10 | 24 GiB / 32 GiB | `--swap-space 8` | Chat completions, 3 runs | ~90 tok/s |
+| P2 | 4096 | 0.90 | 8 | 6 / 10 | 24 GiB / 32 GiB | `--swap-space 8` | 4k context; similar throughput | ~88 tok/s |
+| P3 | 8192 | 0.90 | 8 | 6 / 10 | 24 GiB / 32 GiB | `--swap-space 8` | 8k context; negligible change | ~85 tok/s |
+
+## Current Recommendations
+
+- **DeepSeek OCR**: Keep Trial D3 settings (8 k context, GPU util 0.9, swap-space 8). Provides large context window without throughput drop (~108–114 tok/s).
+- **PaddleOCR-VL**: Trial P3 (8 k ctx, GPU util 0.9, swap-space 8) offers max context with minimal performance impact (~85–90 tok/s).
+- Keep swap-space ≤8 GiB per pod to avoid exceeding Venus’s 32 GiB system RAM.
+- Additional future knobs to revisit if throughput needs rise: speculative decoding (`--speculative-mode`), `--max-num-seqs` for concurrency, and quantized checkpoints once upstream releases them.
 
 ## Tuning Inputs to Consider
 
