@@ -54,7 +54,7 @@
     "tensorParallelSize": 1,
     "dtype": "float16",
     "gpuMemoryUtilization": 0.9,
-    "maxModelLen": 2048,
+    "maxModelLen": 4096,
     "trustRemoteCode": true,
     "extraArgs": [
       "--swap-space",
