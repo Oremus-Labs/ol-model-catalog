@@ -17,13 +17,13 @@
   ],
   "resources": {
     "requests": {
-      "cpu": "8",
-      "memory": "32Gi",
+      "cpu": "6",
+      "memory": "16Gi",
       "amd.com/gpu": "1"
     },
     "limits": {
-      "cpu": "12",
-      "memory": "48Gi",
+      "cpu": "10",
+      "memory": "24Gi",
       "amd.com/gpu": "1"
     }
   },
