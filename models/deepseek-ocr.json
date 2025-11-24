@@ -58,7 +58,7 @@
     "trustRemoteCode": true,
     "extraArgs": [
       "--swap-space",
-      "32"
+      "8"
     ]
   }
 }
