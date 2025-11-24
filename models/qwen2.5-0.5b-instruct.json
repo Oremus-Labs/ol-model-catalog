@@ -2,7 +2,7 @@
   "id": "qwen2.5-0.5b-instruct",
   "displayName": "Qwen2.5 0.5B Instruct",
   "hfModelId": "Qwen/Qwen2.5-0.5B-Instruct",
-  "storageUri": "pvc://venus-model-storage/qwen2.5-0.5b-instruct",
+  "storageUri": "pvc://venus-model-storage/Qwen/Qwen2.5-0.5B-Instruct",
   "runtime": "vllm-runtime",
   "nodeSelector": {
     "kubernetes.io/hostname": "venus"
@@ -33,7 +33,7 @@
     },
     {
       "name": "MODEL_ID",
-      "value": "Qwen/Qwen2.5-0.5B-Instruct"
+      "value": "/mnt/models/Qwen/Qwen2.5-0.5B-Instruct"
     },
     {
       "name": "HUGGING_FACE_HUB_TOKEN",
