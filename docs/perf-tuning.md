@@ -7,6 +7,8 @@ Tracking iterative configuration changes and throughput measurements on the Venu
 | Trial | Max Model Len | GPU Mem Util | Swap (GiB) | CPU Req/Lim | Mem Req/Lim | Extra Args | Notes | Tokens/s |
 |-------|---------------|--------------|-----------|-------------|-------------|------------|-------|----------|
 | D1 | 2048 | 0.90 | 8 | 6 / 10 | 16 GiB / 24 GiB | `--swap-space 8` | Baseline; avg of 3 runs (max_tokens 512) | ~108 tok/s |
+| D2 | 4096 | 0.90 | 8 | 6 / 10 | 16 GiB / 24 GiB | `--swap-space 8` | Larger context; runs 2-3 avg | ~114 tok/s |
+| D3 | 8192 | 0.90 | 8 | 6 / 10 | 16 GiB / 24 GiB | `--swap-space 8` | 1k-token completions; similar throughput | ~108 tok/s |
 
 ## PaddleOCR-VL (`PaddlePaddle/PaddleOCR-VL`)
 
