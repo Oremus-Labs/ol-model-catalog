@@ -1,0 +1,65 @@
+{
+  "id": "gpt-oss-120b",
+  "displayName": "GPT-OSS 120B (Q4)",
+  "hfModelId": "openai/gpt-oss-120b",
+  "servedModelName": "openai/gpt-oss-120b",
+  "storageUri": "pvc://venus-model-storage/openai/gpt-oss-120b",
+  "runtime": "vllm-runtime",
+  "nodeSelector": {
+    "kubernetes.io/hostname": "venus"
+  },
+  "tolerations": [
+    {
+      "key": "amd.com/gpu",
+      "operator": "Exists",
+      "effect": "NoSchedule"
+    }
+  ],
+  "resources": {
+    "requests": {
+      "cpu": "16",
+      "memory": "32Gi",
+      "amd.com/gpu": "1"
+    },
+    "limits": {
+      "cpu": "32",
+      "memory": "64Gi",
+      "amd.com/gpu": "1"
+    }
+  ],
+  "env": [
+    {
+      "name": "HF_HOME",
+      "value": "/mnt/models/.hf-cache"
+    },
+    {
+      "name": "MODEL_ID",
+      "value": "openai/gpt-oss-120b"
+    },
+    {
+      "name": "MODEL_DIR",
+      "value": "/mnt/models"
+    },
+    {
+      "name": "HUGGING_FACE_HUB_TOKEN",
+      "valueFrom": {
+        "secretKeyRef": {
+          "name": "hf-token",
+          "key": "HUGGING_FACE_HUB_TOKEN"
+        }
+      }
+    }
+  ],
+  "vllm": {
+    "dtype": "float16",
+    "gpuMemoryUtilization": 0.9,
+    "maxModelLen": 8192,
+    "tensorParallelSize": 1,
+    "trustRemoteCode": true,
+    "extraArgs": [
+      "--swap-space",
+      "24",
+      "--enforce-eager"
+    ]
+  }
+}
