@@ -38,7 +38,7 @@
     },
     {
       "name": "MODEL_DIR",
-      "value": "/mnt/models"
+      "value": "/mnt/models/original"
     },
     {
       "name": "HUGGING_FACE_HUB_TOKEN",
