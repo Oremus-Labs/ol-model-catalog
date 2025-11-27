@@ -26,7 +26,7 @@
       "memory": "64Gi",
       "amd.com/gpu": "1"
     }
-  ],
+  },
   "env": [
     {
       "name": "HF_HOME",
@@ -58,8 +58,7 @@
     "trustRemoteCode": true,
     "extraArgs": [
       "--swap-space",
-      "24",
-      "--enforce-eager"
+      "24"
     ]
   }
 }
