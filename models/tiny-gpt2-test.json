@@ -1,9 +1,9 @@
 {
-  "id": "deepseek-ocr",
-  "displayName": "DeepSeek OCR",
-  "hfModelId": "deepseek-ai/DeepSeek-OCR",
-  "servedModelName": "deepseek-ai/DeepSeek-OCR",
-  "storageUri": "pvc://venus-model-storage/deepseek-ai/DeepSeek-OCR",
+  "id": "tiny-gpt2-test",
+  "displayName": "Tiny GPT-2 Test",
+  "hfModelId": "sshleifer/tiny-gpt2",
+  "servedModelName": "sshleifer/tiny-gpt2-test",
+  "storageUri": "pvc://venus-model-storage/test-cli",
   "runtime": "vllm-runtime",
   "nodeSelector": {
     "kubernetes.io/hostname": "venus"
@@ -17,13 +17,13 @@
   ],
   "resources": {
     "requests": {
-      "cpu": "6",
-      "memory": "16Gi",
+      "cpu": "2",
+      "memory": "4Gi",
       "amd.com/gpu": "1"
     },
     "limits": {
-      "cpu": "10",
-      "memory": "24Gi",
+      "cpu": "4",
+      "memory": "8Gi",
       "amd.com/gpu": "1"
     }
   },
@@ -34,7 +34,7 @@
     },
     {
       "name": "MODEL_ID",
-      "value": "deepseek-ai/DeepSeek-OCR"
+      "value": "sshleifer/tiny-gpt2"
     },
     {
       "name": "MODEL_DIR",
@@ -53,12 +53,7 @@
   "vllm": {
     "tensorParallelSize": 1,
     "dtype": "float16",
-    "gpuMemoryUtilization": 0.9,
-    "maxModelLen": 8192,
-    "trustRemoteCode": true,
-    "extraArgs": [
-      "--swap-space",
-      "8"
-    ]
+    "gpuMemoryUtilization": 0.5,
+    "maxModelLen": 2048
   }
 }
