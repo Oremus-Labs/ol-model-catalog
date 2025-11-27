@@ -3,7 +3,7 @@
   "displayName": "GPT-OSS 120B (Q4)",
   "hfModelId": "openai/gpt-oss-120b",
   "servedModelName": "openai/gpt-oss-120b",
-  "storageUri": "pvc://venus-model-storage/openai/gpt-oss-120b/original",
+  "storageUri": "pvc://venus-model-storage/openai/gpt-oss-120b",
   "runtime": "vllm-runtime",
   "nodeSelector": {
     "kubernetes.io/hostname": "venus"
@@ -38,7 +38,7 @@
     },
     {
       "name": "MODEL_DIR",
-      "value": "/mnt/models/openai/gpt-oss-120b/original"
+      "value": "/mnt/models/openai/gpt-oss-120b"
     },
     {
       "name": "HUGGING_FACE_HUB_TOKEN",
