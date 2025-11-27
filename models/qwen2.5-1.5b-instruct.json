@@ -1,0 +1,59 @@
+{
+  "id": "qwen2.5-1.5b-instruct",
+  "displayName": "Qwen2.5 1.5B Instruct",
+  "hfModelId": "Qwen/Qwen2.5-1.5B-Instruct",
+  "servedModelName": "Qwen/Qwen2.5-1.5B-Instruct",
+  "storageUri": "pvc://venus-model-storage/qwen2.5-1.5b",
+  "runtime": "vllm-runtime",
+  "nodeSelector": {
+    "kubernetes.io/hostname": "venus"
+  },
+  "tolerations": [
+    {
+      "key": "amd.com/gpu",
+      "operator": "Exists",
+      "effect": "NoSchedule"
+    }
+  ],
+  "resources": {
+    "requests": {
+      "cpu": "6",
+      "memory": "16Gi",
+      "amd.com/gpu": "1"
+    },
+    "limits": {
+      "cpu": "10",
+      "memory": "20Gi",
+      "amd.com/gpu": "1"
+    }
+  },
+  "env": [
+    {
+      "name": "HF_HOME",
+      "value": "/mnt/models/.hf-cache"
+    },
+    {
+      "name": "MODEL_ID",
+      "value": "Qwen/Qwen2.5-1.5B-Instruct"
+    },
+    {
+      "name": "MODEL_DIR",
+      "value": "/mnt/models"
+    },
+    {
+      "name": "HUGGING_FACE_HUB_TOKEN",
+      "valueFrom": {
+        "secretKeyRef": {
+          "name": "hf-token",
+          "key": "HUGGING_FACE_HUB_TOKEN"
+        }
+      }
+    }
+  ],
+  "vllm": {
+    "tensorParallelSize": 1,
+    "dtype": "float16",
+    "gpuMemoryUtilization": 0.85,
+    "maxModelLen": 4096
+  }
+}
