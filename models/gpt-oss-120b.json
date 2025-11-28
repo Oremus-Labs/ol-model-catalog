@@ -61,6 +61,7 @@
     "tensorParallelSize": 1,
     "trustRemoteCode": true,
     "extraArgs": [
+      "--enforce-eager",
       "--swap-space",
       "8"
     ]
