@@ -41,6 +41,10 @@
       "value": "/mnt/models"
     },
     {
+      "name": "HSA_OVERRIDE_GFX_VERSION",
+      "value": "11.0.0"
+    },
+    {
       "name": "HUGGING_FACE_HUB_TOKEN",
       "valueFrom": {
         "secretKeyRef": {
