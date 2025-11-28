@@ -41,6 +41,10 @@
       "value": "/mnt/models"
     },
     {
+      "name": "VLLM_MXFP4_USE_MARLIN",
+      "value": "1"
+    },
+    {
       "name": "HSA_OVERRIDE_GFX_VERSION",
       "value": "11.0.0"
     },
