@@ -45,10 +45,6 @@
       "value": "11.0.0"
     },
     {
-      "name": "SKIP_GPTOSS_PATCH",
-      "value": "1"
-    },
-    {
       "name": "HUGGING_FACE_HUB_TOKEN",
       "valueFrom": {
         "secretKeyRef": {
