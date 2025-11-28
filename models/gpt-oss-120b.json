@@ -38,7 +38,7 @@
     },
     {
       "name": "MODEL_DIR",
-      "value": "/mnt/models"
+      "value": "/mnt/models/openai/gpt-oss-120b"
     },
     {
       "name": "HSA_OVERRIDE_GFX_VERSION",
