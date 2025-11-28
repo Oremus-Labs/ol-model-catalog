@@ -38,7 +38,7 @@
     },
     {
       "name": "MODEL_DIR",
-      "value": "/mnt/models/original"
+      "value": "/mnt/models/openai/gpt-oss-120b"
     },
     {
       "name": "HUGGING_FACE_HUB_TOKEN",
