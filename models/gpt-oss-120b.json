@@ -55,7 +55,7 @@
     }
   ],
   "vllm": {
-    "dtype": "float16",
+    "dtype": "bfloat16",
     "gpuMemoryUtilization": 0.9,
     "maxModelLen": 8192,
     "tensorParallelSize": 1,
